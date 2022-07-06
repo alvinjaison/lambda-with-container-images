@@ -11,11 +11,17 @@ https://github.com/alvinjaison/list-aws-reserved-instances
    ```
    cd lambda-with-container-images
    ```
-3. Build the docker image and push it into ECR repository. 
+3. Get
+   ```
+   AccountID=$(aws sts get-caller-identity --query Account --output text)
+   region='us-east-1'
+   aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $AccountID.dkr.ecr.$region.amazonaws.com
+   ```
+5. Build the docker image and push it into ECR repository. 
    ```
    docker build -t lambda-container .
-   docker tag lambda-container:latest xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/lambda-container:latest
-   docker push xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/lambda-container:latest
+   docker tag lambda-container:latest $AccountID.dkr.ecr.$region.amazonaws.com/lambda-container:latest
+   docker push $AccountID.dkr.ecr.$region.amazonaws.com/lambda-container:latest
    ```
 4. Create the cloudformation stack from AWS console or using aws-cli
    ```
