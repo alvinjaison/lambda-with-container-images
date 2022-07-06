@@ -31,4 +31,4 @@ https://github.com/alvinjaison/list-aws-reserved-instances
    The cloudformation will create the following resources
    > An IAM role
 
-   > A Containerized Lambda function with the above created docker image
+   > A containerized Lambda function with the above created docker image
