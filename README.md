@@ -8,7 +8,9 @@ https://github.com/alvinjaison/list-aws-reserved-instances
 
 1. Create an AWS ECR repository from the console
 2. Clone this repo and enter into the cloned repo directory
-   `cd lambda-with-container-images`
+   ```
+   cd lambda-with-container-images
+   ```
 3. Build the docker image and push it into ECR repository. 
    ```
    docker build -t lambda-container .
