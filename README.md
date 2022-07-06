@@ -11,7 +11,7 @@ https://github.com/alvinjaison/list-aws-reserved-instances
    ```
    cd lambda-with-container-images
    ```
-3. Get
+3. Retrieve an authentication token and authenticate your Docker client to your registry.
    ```
    AccountID=$(aws sts get-caller-identity --query Account --output text)
    region='us-east-1'
