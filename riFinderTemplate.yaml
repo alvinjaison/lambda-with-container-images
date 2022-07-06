@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Template for creating Reserved instance Finder container Lambda
+Description: Template for creating containerized Lambda Function to find Reserved instances
 Resources:
   LambdaRole:
     Type: AWS::IAM::Role
