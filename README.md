@@ -16,5 +16,7 @@ https://github.com/alvinjaison/list-aws-reserved-instances
    docker push xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/lambda-container:latest
    ```
 4. Create the cloudformation stack from AWS console or using aws-cli
-   `aws cloudformation create-stack --stack-name riFinder --template-body file://riFinderTemplate.yaml`
+   ```
+   aws cloudformation create-stack --stack-name riFinder --template-body file://riFinderTemplate.yaml
+   ```
    
