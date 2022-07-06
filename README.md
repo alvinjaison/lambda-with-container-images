@@ -4,7 +4,7 @@ A CloudFormation template to create an AWS lambda function with container image 
 I'm gonna create a docker image with a bash script as CMD. The bash script will list all the reserved insatnce in the account across all regions. The same script can be found in the following repo.
 https://github.com/alvinjaison/list-aws-reserved-instances
 
-**Prerequisites**
+**Steps**
 
 1. Create an AWS ECR repository from the console
 2. Clone this repo and enter into the cloned repo directory
