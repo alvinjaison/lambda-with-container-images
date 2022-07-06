@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Template for creating Reserved instance Finder container Lambda
+Resources:
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName:
+        Fn::Sub: lambda-role
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+            - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+              - lambda.amazonaws.com
+        Version: 2012-10-17
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+      Path: /
+  ContainerizedLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: RIFinder
+      Description: Lambda function to find Reserved instance IDs
+      MemorySize: 1024
+      EphemeralStorage: 
+        Size: 512
+      PackageType: "Image"
+      Timeout: 600
+      Code: 
+        ImageUri: '${AWS::AccountId}.dkr.ecr.us-east-1.amazonaws.com/lambda-container:latest'
+      Role:
+        Fn::GetAtt:
+          - LambdaRole
+          - Arn
